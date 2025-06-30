@@ -6,8 +6,8 @@ import LabeledSelect from "./Select/LabeledSelect";
 import Button from "./Button/Button";
 
 const INDICATOR_FIELDS = {
-  RSI: ["period", "value"],
-  EMA: ["period", "value"],
+  RSI: [ "value","period"],
+  EMA: [ "value","period"],
   EMA_CROSS: ["fast", "slow"],
   MACD: ["value"],
   MACD_HIST: ["value"],
@@ -110,10 +110,11 @@ function StrategyForm({ onResult }) {
             onChange={(val) => handleChange(listSetter, i, field, val)}
           />
         ))}
-
-        <button type="button" onClick={() => removeCondition(listSetter, i)}>
+        <div style={{display:"flex", alignItems:"center"}}>
+        <Button type="button" onClick={() => removeCondition(listSetter, i)}>
           Remove
-        </button>
+        </Button>
+        </div>
       </div>
     );
   };
